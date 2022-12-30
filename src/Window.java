@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
 public class Window {
@@ -26,6 +28,18 @@ public class Window {
         JLabel infoLabel = new JLabel();
         infoLabel.setBounds(170, 180, 200, 20);
         window.add(infoLabel);
+
+        JLabel registerLabel = new JLabel();
+        registerLabel.setBounds(170,160,200,20);
+        registerLabel.setText("<HTML><U>Create new account</U></HTML>");
+        registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        registerLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                RegisterWindow registerWindow = new RegisterWindow(u);
+            }
+        });
+        window.add(registerLabel);
 
         JTextField loginField = new JTextField();
         loginField.setBounds(130, 30, 200, 20);
